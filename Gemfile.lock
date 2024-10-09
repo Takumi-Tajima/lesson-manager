@@ -374,8 +374,8 @@ DEPENDENCIES
   haml_lint
   html2haml
   jsbundling-rails
-  pg (~> 1.1)
-  puma (>= 5.0)
+  pg
+  puma
   rails (~> 7.2.1)
   rspec-rails
   rubocop
