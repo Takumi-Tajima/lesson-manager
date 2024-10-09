@@ -6,6 +6,7 @@ gem 'rails', '~> 7.2.1'
 
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'devise'
 gem 'jsbundling-rails'
 gem 'pg'
 gem 'puma'
@@ -16,6 +17,7 @@ gem 'turbo-rails'
 group :development, :test do
   gem 'brakeman', require: false
   gem 'debug'
+  gem 'dotenv'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'haml_lint'
