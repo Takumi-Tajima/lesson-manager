@@ -1,8 +1,8 @@
-class Admins::LessonsController < ApplicationController
+class Admins::LessonsController < Admins::ApplicationController
   before_action :set_lesson, only: %i[show edit update destroy]
 
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.default_order
   end
 
   def show
@@ -19,7 +19,7 @@ class Admins::LessonsController < ApplicationController
     @lesson = Lesson.new(lesson_params)
 
     if @lesson.save
-      redirect_to @lesson, notice: 'Lesson was successfully created.'
+      redirect_to admins_lessons_path, notice: t('controllers.common.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Admins::LessonsController < ApplicationController
 
   def update
     if @lesson.update(lesson_params)
-      redirect_to @lesson, notice: 'Lesson was successfully updated.', status: :see_other
+      redirect_to admins_lesson_path(@lesson), notice: t('controllers.common.updated'), status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class Admins::LessonsController < ApplicationController
 
   def destroy
     @lesson.destroy!
-    redirect_to lessons_url, notice: 'Lesson was successfully destroyed.', status: :see_other
+    redirect_to lessons_url, notice: t('controllers.common.destroyed'), status: :see_other
   end
 
   private
@@ -45,6 +45,6 @@ class Admins::LessonsController < ApplicationController
   end
 
   def lesson_params
-    params.require(:lesson).permit(:name, :overview, :capacity, :instructor, :hidden)
+    params.require(:lesson).permit(:name, :overview, :instructor, :hidden)
   end
 end
