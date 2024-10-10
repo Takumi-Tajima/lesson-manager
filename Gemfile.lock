@@ -324,6 +324,9 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     sexp_processor (4.17.2)
+    simple_form (5.3.1)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -396,6 +399,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   sgcop!
+  simple_form
   sprockets-rails
   stimulus-rails
   turbo-rails
