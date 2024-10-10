@@ -1,0 +1,16 @@
+= link_to 'レッスンを登録', new_admins_lesson_path, class: 'btn btn-primary mb-3'
+
+%table.table
+  %thead
+    %tr
+      %th イベント名
+      %th 講師名
+      %th 公開状況
+      %th
+  %tbody
+    - @lessons.each do |lesson|
+      %tr
+        %td= lesson.name
+        %td= lesson.instructor
+        %td= lesson.hidden
+        %td= link_to '編集', edit_admins_lesson_path(lesson)

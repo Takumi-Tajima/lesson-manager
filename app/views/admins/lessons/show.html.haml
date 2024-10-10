@@ -1,0 +1,15 @@
+%p
+  %b Name:
+  = @lesson.name
+%p
+  %b Overview:
+  = @lesson.overview
+%p
+  %b Instructor
+  = @lesson.instructor
+  instructor
+%p
+  %b Hidden:
+  = @lesson.hidden
+
+= link_to 'Edit', edit_admins_lesson_path(@lesson)
