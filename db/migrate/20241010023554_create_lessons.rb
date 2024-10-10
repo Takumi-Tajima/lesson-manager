@@ -3,7 +3,7 @@ class CreateLessons < ActiveRecord::Migration[7.2]
     create_table :lessons do |t|
       t.string :name, null: false, default: '', limit: 50
       t.string :overview, null: false, default: '', limit: 100
-      t.string :Instructor_name, null: false, default: ''
+      t.string :instructor, null: false, default: '', limit: 50
       t.boolean :hidden, null: false, default: false
 
       t.timestamps

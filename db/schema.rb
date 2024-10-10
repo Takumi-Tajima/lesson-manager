@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_10_023554) do
   create_table "lessons", force: :cascade do |t|
     t.string "name", limit: 50, default: "", null: false
     t.string "overview", limit: 100, default: "", null: false
-    t.string "Instructor_name", default: "", null: false
+    t.string "instructor", limit: 50, default: "", null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
