@@ -6,11 +6,11 @@
       %th イベント名
       %th 講師名
       %th 公開状況
-      %th
   %tbody
     - @lessons.each do |lesson|
       %tr
-        %td= lesson.name
+        %td= link_to lesson.name, admins_lesson_path(lesson)
         %td= lesson.instructor
         %td= lesson.hidden
-        %td= link_to '編集', edit_admins_lesson_path(lesson)
+
+= paginate @lessons
