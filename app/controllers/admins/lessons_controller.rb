@@ -2,7 +2,7 @@ class Admins::LessonsController < Admins::ApplicationController
   before_action :set_lesson, only: %i[show edit update destroy]
 
   def index
-    @lessons = Lesson.default_order
+    @lessons = Lesson.default_order.page(params[:page])
   end
 
   def show
@@ -35,7 +35,7 @@ class Admins::LessonsController < Admins::ApplicationController
 
   def destroy
     @lesson.destroy!
-    redirect_to lessons_url, notice: t('controllers.common.destroyed'), status: :see_other
+    redirect_to admins_lessons_path, notice: t('controllers.common.destroyed'), status: :see_other
   end
 
   private

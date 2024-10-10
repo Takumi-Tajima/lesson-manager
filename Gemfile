@@ -8,6 +8,7 @@ gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'jsbundling-rails'
+gem 'kaminari'
 gem 'pg'
 gem 'puma'
 gem 'simple_form'
