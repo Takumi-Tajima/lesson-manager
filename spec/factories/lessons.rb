@@ -1,9 +1,8 @@
 FactoryBot.define do
   factory :lesson do
-    name { "MyString" }
-    overview { "MyString" }
-    capacity { 1 }
-    Instructor_name { "MyString" }
-    hidden { false }
+    name { Faker::Lorem.word }
+    overview { Faker::Lorem.sentence(word_count: 25) }
+    instructor { Faker::Name.name }
+    publish { false }
   end
 end
