@@ -19,7 +19,7 @@ class Admins::LessonsController < Admins::ApplicationController
     @lesson = Lesson.new(lesson_params)
 
     if @lesson.save
-      redirect_to admins_lessons_path, notice: t('controllers.common.created')
+      redirect_to admins_lessons_path, notice: t('controllers.common.created', model: 'レッスン')
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Admins::LessonsController < Admins::ApplicationController
 
   def update
     if @lesson.update(lesson_params)
-      redirect_to admins_lesson_path(@lesson), notice: t('controllers.common.updated'), status: :see_other
+      redirect_to admins_lesson_path(@lesson), notice: t('controllers.common.updated', model: 'レッスン'), status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class Admins::LessonsController < Admins::ApplicationController
 
   def destroy
     @lesson.destroy!
-    redirect_to admins_lessons_path, notice: t('controllers.common.destroyed'), status: :see_other
+    redirect_to admins_lessons_path, notice: t('controllers.common.destroyed', model: 'レッスン'), status: :see_other
   end
 
   private
@@ -45,6 +45,6 @@ class Admins::LessonsController < Admins::ApplicationController
   end
 
   def lesson_params
-    params.require(:lesson).permit(:name, :overview, :instructor, :hidden)
+    params.require(:lesson).permit(:name, :overview, :instructor, :publish)
   end
 end
