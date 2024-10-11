@@ -1,8 +1,8 @@
 class Lesson < ApplicationRecord
-  validates :name, presence: true
-  validates :name, :instructor, length: { maximum: 50 }
-  validates :overview, length: { maximum: 100 }
-  validates :hidden, inclusion: { in: [true, false] }
+  validates :name, presence: { message: '必須項目です' }
+  validates :name, :instructor, length: { maximum: 50, message: '50文字以内で入力してください' }
+  validates :overview, length: { maximum: 100, message: '100文字以内で入力してください' }
+  validates :publish, inclusion: { in: [true, false] }
 
   scope :default_order, -> { order(:created_at) }
 end
