@@ -1,0 +1,16 @@
+%p
+  %b Name:
+  = @lesson.name
+%p
+  %b Overview:
+  = @lesson.overview
+%p
+  %b Instructor
+  = @lesson.instructor
+  instructor
+%p
+  %b publish:
+  = lesson_publish_label(@lesson)
+
+= link_to '編集', edit_admins_lesson_path(@lesson)
+= button_to '削除', admins_lesson_path(@lesson), method: :delete, data: { turbo_confirm: t('views.common.confirm.destroy') }
