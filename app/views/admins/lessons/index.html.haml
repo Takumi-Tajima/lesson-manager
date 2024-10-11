@@ -11,6 +11,6 @@
       %tr
         %td= link_to lesson.name, admins_lesson_path(lesson)
         %td= lesson.instructor
-        %td= lesson.hidden
+        %td= lesson_publish_label(lesson)
 
 = paginate @lessons
