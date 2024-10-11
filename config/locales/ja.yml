@@ -5,7 +5,7 @@ ja:
         name: レッスン名
         overview: 概要
         instructor: 講師名
-        hidden: 公開状況
+        publish: 公開状況
       user:
         name: 名前
         address: お届け先
