@@ -2,7 +2,7 @@ class LessonsController < ApplicationController
   before_action :set_lesson, only: %i[show]
 
   def index
-    @lessons = Lesson.default_order.page(params[:page])
+    @lessons = Lesson.visible.default_order.page(params[:page])
   end
 
   def show
@@ -11,6 +11,6 @@ class LessonsController < ApplicationController
   private
 
   def set_lesson
-    @lesson = Lesson.find(params[:id])
+    @lesson = Lesson.visible.find(params[:id])
   end
 end
