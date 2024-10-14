@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   namespace :admins do
     root 'lessons#index'
     resources :lessons

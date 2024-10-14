@@ -1,0 +1,8 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-info
+  .container-fluid.justify-content-between
+    %a.navbar-brand Lesson Manager
+    %a.navbar-brand
+      - if user_signed_in?
+        = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-danger'
+      - else
+        = link_to 'ログイン', new_user_session_path, class: 'btn btn-primary'
