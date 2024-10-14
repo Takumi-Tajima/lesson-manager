@@ -1,0 +1,10 @@
+%h1.h3 レッスン一覧
+
+.row.row-cols-1.row-cols-md-3.row-cols-lg-4
+  - @lessons.each do |lesson|
+    .col.mb-5.text-decoration-none
+      = link_to lesson_path(lesson), class: 'text-decoration-none' do
+        .card
+          .card-body
+            %h2.h5.card-title= lesson.name
+            .card-text= lesson.instructor
