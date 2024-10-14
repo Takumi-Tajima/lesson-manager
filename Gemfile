@@ -30,6 +30,7 @@ end
 
 group :development do
   gem 'bullet'
+  gem 'letter_opener_web'
   gem 'rubocop', require: false
   gem 'sgcop', github: 'SonicGarden/sgcop', branch: 'main'
   gem 'web-console'
