@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'レッスン閲覧機能', type: :system do
   let(:user) { create(:user) }
-  let!(:publish_lesson) { create(:lesson, name: 'Rspecの基礎講座', overview: 'Rspecの基礎が1時間で学べる', instructor: '雨宮匠', publish: true) }
+  let!(:publish_lesson) { create(:lesson, name: 'Rspecの基礎講座', overview: 'Rspecの基礎が1時間で学べる', instructor: '雨宮匠', publish: true) } # rubocop:disable RSpec/LetSetup
   let!(:unpublished_lesson) { create(:lesson, name: '初めてのスノーボード', instructor: 'Alice Sherry', publish: false) }
 
   before do
