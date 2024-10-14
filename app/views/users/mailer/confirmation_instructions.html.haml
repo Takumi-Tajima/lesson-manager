@@ -1,4 +1,2 @@
-%p
-  Welcome #{@email}!
-%p You can confirm your account email through the link below:
-%p= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+%p 下記のURLをクリックしてアカウントの有効化を行なってください。
+%p= link_to 'アカウントの有効化を行う', confirmation_url(@resource, confirmation_token: @token)
