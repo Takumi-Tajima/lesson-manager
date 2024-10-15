@@ -8,7 +8,9 @@ Rails.application.routes.draw do
              controllers: { registrations: 'users/registrations' }
   namespace :admins do
     root 'lessons#index'
-    resources :lessons
+    resources :lessons do
+      resources :lesson_dates, module: :lessons
+    end
   end
   devise_for :admins
   get 'up' => 'rails/health#show', as: :rails_health_check

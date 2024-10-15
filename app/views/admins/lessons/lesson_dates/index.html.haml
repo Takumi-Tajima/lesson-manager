@@ -1,0 +1,16 @@
+= link_to 'レッスンの開催日を追加する', new_admins_lesson_lesson_date_path, class: 'btn btn-primary mb-3'
+
+%table.table
+  %thead
+    %tr
+      %th 開催日
+      %th 開始時間
+      %th 終了時間
+      %th 定員
+  %tbody
+    -  @lesson_dates.each do |lesson_date|
+      %tr
+        %td= link_to lesson_date.date, admins_lesson_lesson_date_path(lesson_date.lesson, lesson_date)
+        %td= l lesson_date.start_at, format: :time
+        %td= l lesson_date.end_at, format: :time
+        %td= lesson_date.capacity
