@@ -7,6 +7,8 @@ class LessonDate < ApplicationRecord
   validates :end_at, comparison: { greater_than: :start_at, message: '終了時刻は、開始時刻よりも後に設定してください' }
   validates :capacity, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 100, message: '定員は1人から100人の間で設定してください' }
 
+  scope :default_order, -> { order(:date) }
+
   def today?
     date == Date.current
   end

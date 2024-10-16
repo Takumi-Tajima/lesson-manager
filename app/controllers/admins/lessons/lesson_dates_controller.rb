@@ -4,7 +4,7 @@ class Admins::Lessons::LessonDatesController < Admins::ApplicationController
 
   def index
     lesson = set_lesson
-    @lesson_dates = lesson.lesson_dates
+    @lesson_dates = lesson.lesson_dates.default_order.page(params[:page])
   end
 
   def show
