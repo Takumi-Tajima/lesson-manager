@@ -8,5 +8,6 @@
   .mt-2= @lesson_date.capacity
   .mt-2= @lesson_date.url
 
+= link_to '予約ユーザー一覧', admins_lesson_lesson_date_reserved_users_path(@lesson_date.lesson, @lesson_date)
 = link_to '編集', edit_admins_lesson_lesson_date_path(@lesson_date)
 = button_to '削除', admins_lesson_lesson_date_path(@lesson_date), method: :delete, data: { turbo_confirm: t('views.common.confirm.destroy') }

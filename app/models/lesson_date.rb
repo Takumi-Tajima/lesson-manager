@@ -1,6 +1,7 @@
 class LessonDate < ApplicationRecord
   belongs_to :lesson
   has_many :reservations, dependent: :destroy
+  has_many :users, through: :reservations
 
   validates :date, :start_at, :end_at, :url, presence: { message: '必須項目です' }
   validates :date, uniqueness: { scope: :lesson_id }, comparison: { greater_than: Date.current, message: '本日以降の日程を選択してください。' }
