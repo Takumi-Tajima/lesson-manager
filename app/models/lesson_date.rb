@@ -1,6 +1,6 @@
 class LessonDate < ApplicationRecord
   belongs_to :lesson
-  has_many :reservations, dependent: :destroy
+  has_many :reservations, dependent: :restrict_with_error
   has_many :users, through: :reservations
 
   validates :date, :start_at, :end_at, :url, presence: { message: '必須項目です' }
