@@ -3,24 +3,27 @@ class Admins::Lessons::LessonDatesController < Admins::ApplicationController
   before_action :set_lesson_date, only: %i[show edit update destroy]
 
   def index
-    @lesson_dates = @lesson.lesson_dates
+    lesson = set_lesson
+    @lesson_dates = lesson.lesson_dates
   end
 
   def show
   end
 
   def new
-    @lesson_date = @lesson.lesson_dates.build
+    lesson = set_lesson
+    @lesson_date = lesson.lesson_dates.build
   end
 
   def edit
   end
 
   def create
-    @lesson_date = @lesson.lesson_dates.build(lesson_date_params)
+    lesson = set_lesson
+    @lesson_date = lesson.lesson_dates.build(lesson_date_params)
 
     if @lesson_date.save
-      redirect_to admins_lesson_lesson_date_path(@lesson, @lesson_date), notice: t('controllers.common.created', model: '開催日')
+      redirect_to admins_lesson_lesson_dates_path(@lesson_date.lesson), notice: t('controllers.common.created', model: '開催日')
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,7 +45,7 @@ class Admins::Lessons::LessonDatesController < Admins::ApplicationController
   private
 
   def set_lesson
-    @lesson = Lesson.find(params[:lesson_id])
+    Lesson.find(params[:lesson_id])
   end
 
   def set_lesson_date
