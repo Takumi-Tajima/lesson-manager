@@ -1,0 +1,6 @@
+%h1.h3= @reservation.lesson_date.lesson.name
+
+.row.mt-4
+  .mt-2= l @reservation.lesson_date.start_at, format: :time
+  .mt-2= l @reservation.lesson_date.end_at, format: :time
+  .mt-2= @reservation.lesson_date.url
