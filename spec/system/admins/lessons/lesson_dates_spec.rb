@@ -11,7 +11,7 @@ RSpec.describe 'レッスン開催日登録機能', type: :system do
   context '2024-10-15にアクセスした時' do
     before do
       travel_to '2024-10-15'
-      create(:lesson_date, lesson:, date: '2024-10-16', start_at: '12:00:00', end_at: '15:00:00',
+      create(:lesson_date, lesson:, date: '2024-10-16', start_at: '12:00', end_at: '15:00',
                            capacity: 5, url: 'https://example.zoom.us')
     end
 
