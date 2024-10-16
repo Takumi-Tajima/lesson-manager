@@ -1,5 +1,5 @@
 class Lesson < ApplicationRecord
-  has_many :lesson_dates, dependent: :destroy
+  has_many :lesson_dates, dependent: :restrict_with_error
 
   validates :name, presence: { message: '必須項目です' }
   validates :name, :instructor, length: { maximum: 50, message: '50文字以内で入力してください' }
