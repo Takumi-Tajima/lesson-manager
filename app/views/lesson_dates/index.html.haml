@@ -5,6 +5,7 @@
       %th 開始時間
       %th 終了時間
       %th 定員
+      %th
   %tbody
     - @lesson_dates.each do |lesson_date|
       %tr
@@ -12,3 +13,4 @@
         %td= l lesson_date.start_at, format: :time
         %td= l lesson_date.end_at, format: :time
         %td= lesson_date.capacity
+        %td= button_to '予約', lesson_lesson_date_reservations_path(lesson_date.lesson, lesson_date)
