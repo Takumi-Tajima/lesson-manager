@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'lessons#index'
   resources :lessons, only: %i[index show] do
     resources :lesson_dates, only: %i[index] do
-      resources :reservations, only: %i[index create destroy]
+      resources :reservations, only: %i[create destroy]
     end
   end
   devise_for :users,
