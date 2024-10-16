@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
   root 'lessons#index'
-  resources :lessons, only: %i[index show]
+  resources :lessons, only: %i[index show] do
+    resources :lesson_dates, only: %i[index]
+  end
   devise_for :users,
              controllers: { registrations: 'users/registrations' }
   namespace :admins do
