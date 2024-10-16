@@ -1,0 +1,14 @@
+%table.table
+  %thead
+    %tr
+      %th 開催日
+      %th 開始時間
+      %th 終了時間
+      %th 定員
+  %tbody
+    - @lesson_dates.each do |lesson_date|
+      %tr
+        %td= lesson_date.date
+        %td= l lesson_date.start_at, format: :time
+        %td= l lesson_date.end_at, format: :time
+        %td= lesson_date.capacity

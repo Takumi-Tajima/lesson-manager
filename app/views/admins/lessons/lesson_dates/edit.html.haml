@@ -1,0 +1,9 @@
+= simple_form_for([:admins, @lesson_date.lesson, @lesson_date]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  = f.input :date, order: [:year, :month, :day]
+  = f.input :start_at
+  = f.input :end_at
+  = f.input :capacity
+  = f.input :url
+  = f.button :submit

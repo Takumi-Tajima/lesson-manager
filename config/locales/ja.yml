@@ -1,6 +1,12 @@
 ja:
   activerecord:
     attributes:
+      lesson_date:
+        date: 開催日
+        start_at: 開始時間
+        end_at: 終了時間
+        capacity: 定員
+        url: ZoomのURL
       lesson:
         name: レッスン名
         overview: 概要
@@ -148,3 +154,6 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+  time:
+    formats:
+      time: "%H:%M"
