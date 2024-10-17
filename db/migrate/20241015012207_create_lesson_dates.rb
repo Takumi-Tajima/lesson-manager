@@ -10,6 +10,6 @@ class CreateLessonDates < ActiveRecord::Migration[7.2]
 
       t.timestamps
     end
-    add_index :lesson_dates, %i[lesson_id date], unique: true
+    add_index :lesson_dates, %i[date lesson_id], unique: true
   end
 end

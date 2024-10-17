@@ -14,3 +14,5 @@
         %td= l lesson_date.end_at, format: :time
         %td= lesson_date.capacity
         %td= button_to '予約', lesson_lesson_date_reservations_path(lesson_date.lesson, lesson_date), class: 'btn btn-primary'
+
+= paginate @lesson_dates

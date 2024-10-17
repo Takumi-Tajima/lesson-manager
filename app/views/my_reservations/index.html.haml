@@ -12,3 +12,5 @@
         %td= l reservation.lesson_date.start_at, format: :time
         %td= l reservation.lesson_date.end_at, format: :time
         %td= button_to 'キャンセル', lesson_lesson_date_reservation_path(reservation.lesson_date.lesson, reservation.lesson_date, reservation), method: :delete, data: { turbo_confirm: t('views.common.confirm.destroy') }, class: 'btn btn btn-outline-danger'
+
+= paginate @reservations

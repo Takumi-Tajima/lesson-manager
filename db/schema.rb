@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_16_061848) do
     t.string "url", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["lesson_id", "date"], name: "index_lesson_dates_on_lesson_id_and_date", unique: true
+    t.index ["date", "lesson_id"], name: "index_lesson_dates_on_date_and_lesson_id", unique: true
     t.index ["lesson_id"], name: "index_lesson_dates_on_lesson_id"
   end
 
