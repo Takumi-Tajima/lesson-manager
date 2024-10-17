@@ -1,17 +1,19 @@
-%p
-  %b Name:
-  = @lesson.name
-%p
-  %b Overview:
-  = @lesson.overview
-%p
-  %b Instructor
-  = @lesson.instructor
-  instructor
-%p
-  %b publish:
-  = lesson_publish_label(@lesson)
+%h1.h3= @lesson.name
 
-= link_to '開催日一覧', admins_lesson_lesson_dates_path(@lesson)
-= link_to '編集', edit_admins_lesson_path(@lesson)
-= button_to '削除', admins_lesson_path(@lesson), method: :delete, data: { turbo_confirm: t('views.common.confirm.destroy') }
+.row.mt-4
+  .mt-2
+    %h2.h4 概要
+    = @lesson.overview
+  .mt-4
+    %h2.h4 講師名
+    = @lesson.instructor
+  .mt-4
+    %h2.h4 公開状況
+    = lesson_publish_label(@lesson)
+
+.d-flex
+  .mt-4.me-4
+    = link_to '開催日一覧', admins_lesson_lesson_dates_path(@lesson), class: 'btn btn-primary'
+  .mt-4.d-flex
+    = link_to '編集', edit_admins_lesson_path(@lesson), class: 'btn btn-success'
+    = button_to '削除', admins_lesson_path(@lesson), method: :delete, data: { turbo_confirm: t('views.common.confirm.destroy') }, class: 'btn btn-danger'
