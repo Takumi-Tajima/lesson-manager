@@ -1,26 +1,23 @@
 class Admins::Lessons::LessonDatesController < Admins::ApplicationController
-  before_action :set_lesson, only: %i[index new create]
+  before_action :set_lesson
   before_action :set_lesson_date, only: %i[show edit update destroy]
 
   def index
-    lesson = set_lesson
-    @lesson_dates = lesson.lesson_dates.default_order.page(params[:page])
+    @lesson_dates = @lesson.lesson_dates.default_order.page(params[:page])
   end
 
   def show
   end
 
   def new
-    lesson = set_lesson
-    @lesson_date = lesson.lesson_dates.build
+    @lesson_date = @lesson.lesson_dates.build
   end
 
   def edit
   end
 
   def create
-    lesson = set_lesson
-    @lesson_date = lesson.lesson_dates.build(lesson_date_params)
+    @lesson_date = @lesson.lesson_dates.build(lesson_date_params)
 
     if @lesson_date.save
       redirect_to admins_lesson_lesson_dates_path(@lesson_date.lesson), notice: t('controllers.common.created', model: '開催日')
@@ -45,11 +42,11 @@ class Admins::Lessons::LessonDatesController < Admins::ApplicationController
   private
 
   def set_lesson
-    Lesson.find(params[:lesson_id])
+    @lesson = Lesson.find(params[:lesson_id])
   end
 
   def set_lesson_date
-    @lesson_date = LessonDate.find(params[:id])
+    @lesson_date = @lesson.lesson_dates.find(params[:id])
   end
 
   def lesson_date_params
