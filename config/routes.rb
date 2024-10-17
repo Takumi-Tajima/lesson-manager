@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: '/letter_opener'
-  end
   root 'lessons#index'
+  devise_for :users,
+             controllers: { registrations: 'users/registrations' }
   resources :my_reservations, only: %i[index show]
   resources :lessons, only: %i[index show] do
     resources :lesson_dates, only: %i[index] do
       resources :reservations, only: %i[create destroy]
     end
   end
-  devise_for :users,
-             controllers: { registrations: 'users/registrations' }
+
+  devise_for :admins
   namespace :admins do
     root 'lessons#index'
     resources :lessons do
@@ -19,6 +18,8 @@ Rails.application.routes.draw do
       end
     end
   end
-  devise_for :admins
-  get 'up' => 'rails/health#show', as: :rails_health_check
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
 end
