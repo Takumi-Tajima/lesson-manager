@@ -56,7 +56,7 @@ RSpec.describe 'レッスン開催日登録機能', type: :system do
       select '20', from: 'lesson_date[end_at(4i)]'
       select '00', from: 'lesson_date[end_at(5i)]'
       fill_in '定員',	with: '80'
-      fill_in 'ZoomのURL',	with: 'https://example.taji.zoom'
+      fill_in '開催場所URL',	with: 'https://example.taji.zoom'
       expect do
         click_on '登録'
         expect(page).to have_content '開催日を登録しました'
@@ -88,7 +88,7 @@ RSpec.describe 'レッスン開催日登録機能', type: :system do
       select '21', from: 'lesson_date[end_at(4i)]'
       select '30', from: 'lesson_date[end_at(5i)]'
       fill_in '定員',	with: '19'
-      fill_in 'ZoomのURL',	with: 'https://example.takumi.zoom'
+      fill_in '開催場所URL',	with: 'https://example.takumi.zoom'
       expect do
         click_on '登録'
         expect(page).to have_content '開催日を編集しました'
@@ -130,7 +130,7 @@ RSpec.describe 'レッスン開催日登録機能', type: :system do
       select '06', from: 'lesson_date[end_at(4i)]'
       select '30', from: 'lesson_date[end_at(5i)]'
       fill_in '定員',	with: '101'
-      fill_in 'ZoomのURL',	with: ''
+      fill_in '開催場所URL',	with: ''
       expect do
         click_on '登録'
         expect(page).to have_content 'エラーがあります。確認してください'
