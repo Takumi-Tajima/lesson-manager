@@ -14,3 +14,5 @@
         %td= l lesson_date.start_at, format: :time
         %td= l lesson_date.end_at, format: :time
         %td= lesson_date.capacity
+
+= paginate @lesson_dates
