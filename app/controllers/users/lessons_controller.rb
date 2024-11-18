@@ -1,4 +1,4 @@
-class LessonsController < ApplicationController
+class Users::LessonsController < ApplicationController
   before_action :set_lesson, only: %i[show]
 
   def index

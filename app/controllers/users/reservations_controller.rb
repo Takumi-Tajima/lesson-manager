@@ -1,4 +1,4 @@
-class MyReservationsController < ApplicationController
+class Users::ReservationsController < ApplicationController
   def index
     @reservations = current_user.reservations.preload(lesson_date: :lesson.name).default_order.page(params[:page])
   end

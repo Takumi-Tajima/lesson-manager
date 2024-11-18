@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  root 'lessons#index'
+  root 'users/lessons#index'
   devise_for :users,
              controllers: { registrations: 'users/registrations' }
-  resources :my_reservations, only: %i[index show]
-  resources :lessons, only: %i[index show] do
-    resources :lesson_dates, only: %i[index] do
-      resources :reservations, only: %i[create destroy]
+  resources :reservations, only: %i[index show], module: :users
+  resources :lessons, module: :users, only: %i[index show] do
+    resources :lesson_dates, module: :lessons, only: %i[index] do
+      resource :reservation, only: %i[create destroy], module: :lesson_dates
     end
   end
 
