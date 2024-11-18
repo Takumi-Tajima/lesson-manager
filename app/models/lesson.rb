@@ -7,5 +7,5 @@ class Lesson < ApplicationRecord
   validates :publish, inclusion: { in: [true, false] }
 
   scope :default_order, -> { order(:created_at) }
-  scope :visible, -> { where(publish: true) }
+  scope :publish, -> { where(publish: true) }
 end
