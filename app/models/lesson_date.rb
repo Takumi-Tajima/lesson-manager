@@ -10,6 +10,7 @@ class LessonDate < ApplicationRecord
   validates :capacity, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 100, message: '定員は1人から100人の間で設定してください' }
 
   scope :default_order, -> { order(:date) }
+  scope :reservable_lessons, -> { left_joins(:reservations).group('lesson_dates.id').having('COUNT(reservations.id) < lesson_dates.capacity') }
 
   def today?
     date == Date.current
