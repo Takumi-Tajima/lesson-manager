@@ -5,7 +5,7 @@ ja:
         lesson_date:
           attributes:
             date:
-              greater_than: 本日よりも先の日付にしてください
+              greater_than: 本日以降の日程を選択してください。
             start_at:
               greater_than: 現在時刻よりも30分先の時間を指定してください
             end_at:
