@@ -3,11 +3,11 @@ class LessonDate < ApplicationRecord
   has_many :reservations, dependent: :restrict_with_error
   has_many :users, through: :reservations
 
-  validates :date, :start_at, :end_at, :url, presence: { message: '必須項目です' }
-  validates :date, uniqueness: { scope: :lesson_id }, comparison: { greater_than: Date.current, message: '本日以降の日程を選択してください。' }
-  validates :start_at, comparison: { greater_than: Time.current + 30.minutes, message: '開始時刻は、現時刻よりも30分以上間隔を開けて設定してください' }, if: :today?
-  validates :end_at, comparison: { greater_than: :start_at, message: '終了時刻は、開始時刻よりも後に設定してください' }
-  validates :capacity, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 100, message: '定員は1人から100人の間で設定してください' }
+  validates :date, uniqueness: { scope: :lesson_id }, comparison: { greater_than: Date.current }
+  validates :start_at, comparison: { greater_than: Time.current + 30.minutes }, if: :today?
+  validates :end_at, comparison: { greater_than: :start_at }
+  validates :capacity, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 100 }
+  validates :url, presence: true
 
   scope :default_order, -> { order(:date) }
   scope :reservable_lessons, -> { left_joins(:reservations).group('lesson_dates.id').having('COUNT(reservations.id) < lesson_dates.capacity') }
