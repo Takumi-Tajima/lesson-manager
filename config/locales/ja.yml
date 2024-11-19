@@ -9,9 +9,10 @@ ja:
             start_at:
               greater_than: 現在時刻よりも30分先の時間を指定してください
             end_at:
-              greater_than: 開始時間よりも後の時間を指定してください
+              greater_than: 開始時刻よりも後に設定してください
             capacity:
-              greater_than_or_equal_to: 1人以上100人以下で設定してください
+              greater_than_or_equal_to: 定員は1人から100人の間で設定してください
+              less_than_or_equal_to: 定員は1人から100人の間で設定してください
     attributes:
       lesson_date:
         date: 開催日

@@ -136,7 +136,7 @@ RSpec.describe 'レッスン開催日登録機能', type: :system do
         expect(page).to have_content 'エラーがあります。確認してください'
       end.not_to change(lesson.lesson_dates, :count)
       expect(page).to have_content '本日以降の日程を選択してください。'
-      expect(page).to have_content '終了時刻は、開始時刻よりも後に設定してください'
+      expect(page).to have_content '開始時刻よりも後に設定してください'
       expect(page).to have_content '定員は1人から100人の間で設定してください'
       expect(page).to have_content '必須項目です'
     end
