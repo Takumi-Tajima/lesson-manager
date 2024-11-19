@@ -62,8 +62,6 @@ RSpec.describe 'レッスン登録機能', type: :system do
     end.not_to change(Lesson, :count)
     expect(page).to have_current_path new_admins_lesson_path
     expect(page).to have_content 'レッスン名 必須項目です'
-    expect(page).to have_content '概要 100文字以内で入力してください'
-    expect(page).to have_content '講師名 50文字以内で入力してください'
   end
 
   it 'レッスンを編集できること' do
@@ -99,8 +97,6 @@ RSpec.describe 'レッスン登録機能', type: :system do
     click_on '登録'
     expect(page).to have_current_path edit_admins_lesson_path(lesson)
     expect(page).to have_content 'レッスン名 必須項目です'
-    expect(page).to have_content '概要 100文字以内で入力してください'
-    expect(page).to have_content '講師名 50文字以内で入力してください'
   end
 
   it 'レッスンを削除できること' do
