@@ -46,7 +46,9 @@ class Reservation < ApplicationRecord
     end
   end
 
-  def times_overlap?(lesson_dates)
+  def times_overlap?(lesson_dates = nil)
+    return false unless lesson_dates
+
     lesson_dates.each do |lesson_date_reserved|
       if (lesson_date_reserved.start_at..lesson_date_reserved.end_at).overlap?(lesson_date.start_at..lesson_date.end_at)
         return true
