@@ -1,0 +1,16 @@
+%table.table
+  %thead
+    %tr
+      %th レッスン名
+      %th 開始時間
+      %th 終了時間
+      %td
+  %tbody
+    - @reservations.each do |reservation|
+      %tr
+        %td= link_to reservation.lesson_date.lesson.name, reservation_path(reservation)
+        %td= l reservation.lesson_date.start_at, format: :time
+        %td= l reservation.lesson_date.end_at, format: :time
+        %td= button_to 'キャンセル', lesson_lesson_date_reservation_path(reservation.lesson_date.lesson, reservation.lesson_date, reservation_id: reservation), method: :delete, data: { turbo_confirm: t('views.common.confirm.destroy') }, class: 'btn btn btn-outline-danger'
+
+= paginate @reservations

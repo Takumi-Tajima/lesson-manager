@@ -1,0 +1,10 @@
+%table.table
+  %thead
+    %tr
+      %th 名前
+      %th メール
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.email

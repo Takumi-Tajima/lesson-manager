@@ -1,0 +1,7 @@
+%h1.h3= @lesson.name
+
+.row.mt-4
+  .mt-2= @lesson.overview
+  .mt-2= @lesson.instructor
+
+= link_to '開催日一覧', lesson_lesson_dates_path(@lesson), class: 'btn btn-primary'

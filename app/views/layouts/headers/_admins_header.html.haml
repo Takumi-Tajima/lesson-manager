@@ -1,0 +1,4 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container-fluid.justify-content-between
+    .navbar-brand.h2= link_to 'Lesson Manager', admins_root_path, class: 'text-decoration-none text-body'
+    .navbar-brand= button_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'btn btn-outline-danger'

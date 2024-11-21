@@ -1,0 +1,8 @@
+= simple_form_for([:admins, lesson]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  = f.input :name
+  = f.input :overview
+  = f.input :instructor
+  = f.input :publish, label: '公開する'
+  = f.button :submit, class: 'btn btn-primary'
