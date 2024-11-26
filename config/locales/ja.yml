@@ -170,3 +170,6 @@ ja:
   time:
     formats:
       time: "%H:%M"
+  date:
+    formats:
+      default: "%Y/%m/%d"
