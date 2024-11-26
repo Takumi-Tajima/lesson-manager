@@ -1,0 +1,15 @@
+= link_to '< 予約したレッスンの一覧', reservations_path, class: 'text-decoration-none'
+
+.col-10.mx-auto.mt-5
+  %h1.h2= @reservation.lesson_date.lesson.name
+
+  .row.mt-4
+    .mt-2
+      %h2.h4 開始時間
+      = l @reservation.lesson_date.start_at, format: :time
+    .mt-2
+      %h2.h4 終了時間
+      = l @reservation.lesson_date.end_at, format: :time
+    .mt-2
+      %h2.h4 開催場所URL
+      = @reservation.lesson_date.url

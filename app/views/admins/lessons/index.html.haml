@@ -1,0 +1,18 @@
+= link_to 'レッスンを登録', new_admins_lesson_path, class: 'btn btn-primary mb-3'
+
+%table.table
+  %thead
+    %tr
+      %th イベント名
+      %th 講師名
+      %th 公開状況
+      %th
+  %tbody
+    - @lessons.each do |lesson|
+      %tr
+        %td= link_to lesson.name, admins_lesson_path(lesson)
+        %td= lesson.instructor
+        %td= lesson_publish_label(lesson)
+        %td= link_to '開催日一覧', admins_lesson_lesson_dates_path(lesson)
+
+= paginate @lessons

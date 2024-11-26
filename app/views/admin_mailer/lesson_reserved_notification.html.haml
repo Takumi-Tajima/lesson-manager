@@ -1,0 +1,11 @@
+%h1 予約通知
+
+%p #{@user.name} さんが下記のレッスンを予約しました。
+
+%p レッスン名: #{ @lesson.name }
+
+%p
+  = l @lesson_date.date
+%p
+  = l @lesson_date.start_at, format: :time
+  = l @lesson_date.end_at, format: :time

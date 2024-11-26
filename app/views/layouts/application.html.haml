@@ -15,4 +15,8 @@
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
   %body
-    = yield
+    %header.mb-2
+      = render 'layouts/headers/users_header'
+    .container
+      = render 'layouts/flash'
+      = yield
